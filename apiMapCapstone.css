@@ -31,3 +31,9 @@ li {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+#map {
+	height: 400px;
+	width: 100%;
+/*	background-color: blue;*/
+}

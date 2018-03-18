@@ -1,0 +1,24 @@
+html {
+	background: black;
+}
+
+h2 {
+	color: white;
+}
+
+.imgContainer {
+	text-align: center;
+}
+
+p {
+	color: white;
+}
+
+#linkBox {
+	text-align: center;*/
+}
+
+li {
+	display: inline;
+	color: white;
+}

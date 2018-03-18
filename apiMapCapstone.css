@@ -22,3 +22,12 @@ li {
 	display: inline;
 	color: white;
 }
+
+.containerOfEvents {
+	width: 90%;
+	height: 100px;
+	color: gray;
+	border: solid white 1px;
+	margin-right: auto;
+	margin-left: auto;
+}

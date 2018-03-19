@@ -1,20 +1,27 @@
 
 //make an object of all my info
 const daysEventsObject = {
-	Thursday: {
-		day: 'Thursday',
+	Thursday: [{
 		event:'Mehendi',
-		location: 'this is at the Peddireddy home',
-		address:'this is a test of the address',
+		time:'5:30pm - 7:30pm',
+		address:'Silver Creek Valley Country Club, 5460 Country Club Pkwy, San Jose, CA 95138',
 		link: 'https://youtu.be/K3AQ8U2wqYc',
 		text: 'This event is catered to all the lovely ladies who would like to get their hands decorated with henna. There will likely be a dosa bar. Can\'t make this event? Don\'t fret, we will have a henna artist available at the reception.'
+	}],
+	Friday: [{	
+		event:'Making of Bride and Groom',
+		time:'10:00am',
+		address:'this is at the Peddireddy home',
+		link: 'https://youtu.be/K3AQ8U2wqYc',
+		text:''
 	},
-	Friday: {	
-		day: 'Friday',
-		event:'Mehendi',
-		location: 'this is at the Peddireddy home',
-		address:'this is a test of the address'
-	}}
+	{
+		event:'Sangeeth & Reception',
+		time:'6:30pm',
+		address:'Silver Creek Valley Country Club, 5460 Country Club Pkwy, San Jose, CA 95138',
+		link: 'https://youtu.be/K3AQ8U2wqYc',
+		text: ''
+	}]}
 
 // I think I can do a initMap for each day set up listeners on the days 
 // then have them call a function for each day
@@ -36,11 +43,15 @@ function initMap() {
 function listOfEventsByDay() {
 	$('button').click(function(e) {
 		$(".days-stuff").empty();
-		$(".days-stuff").append(`\
-			<header>${daysEventsObject[e.target.id].event}</header>
-			<p>${daysEventsObject[e.target.id].text}</p>
-			<a href="${daysEventsObject[e.target.id].link}" class="lightbox">${daysEventsObject['Thursday'].event}</a>
+		daysEventsObject[e.target.id].forEach(function(arg) {
+			$(".days-stuff").append(`\
+			<header>${arg.event}, ${arg.time}</header>
+			<p>${arg.address}</p>
+			<p>${arg.text}</p>
+			<a href="${arg.link}" class="lightbox">${arg.event}</a>
 			`)
+		})
+		
 		// daysEventsObject.html(daysEventsObject.html().replace(/\n/g,'<br/>'));
 
 		//might want to put in an if this === thursday run the thursday function

@@ -45,16 +45,13 @@ function listOfEventsByDay() {
 		$(".days-stuff").empty();
 		daysEventsObject[e.target.id].forEach(function(arg) {
 			$(".days-stuff").append(`\
-			<header>${arg.event}, ${arg.time}</header>
+			<header id='boldTheHeader'>${arg.event}, ${arg.time}</header>
 			<p>${arg.address}</p>
 			<p>${arg.text}</p>
 			<a href="${arg.link}" class="lightbox">${arg.event}</a>
 			`)
 		})
-		
-		// daysEventsObject.html(daysEventsObject.html().replace(/\n/g,'<br/>'));
 
-		//might want to put in an if this === thursday run the thursday function
 	}) 
 }
 

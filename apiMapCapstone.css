@@ -10,8 +10,17 @@ h2 {
 	text-align: center;
 }
 
+img {
+	width: cover;
+	height: auto;
+}
+
 p {
 	color: white;
+}
+
+#boldTheHeader {
+	font-weight: bold;
 }
 
 #linkBox {

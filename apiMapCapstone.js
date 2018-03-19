@@ -3,14 +3,16 @@
 const daysEventsObject = {
 	Thursday: {
 		day: 'Thursday',
-		event1:'Mehendi',
-		location1: 'this is at the Peddireddy home',
-		address:'this is a test of the address'
+		event:'Mehendi',
+		location: 'this is at the Peddireddy home',
+		address:'this is a test of the address',
+		link: 'https://youtu.be/K3AQ8U2wqYc',
+		text: 'This event is catered to all the lovely ladies who would like to get their hands decorated with henna. There will likely be a dosa bar. Can\'t make this event? Don\'t fret, we will have a henna artist available at the reception.'
 	},
 	Friday: {	
 		day: 'Friday',
-		event1:'Mehendi',
-		location1: 'this is at the Peddireddy home',
+		event:'Mehendi',
+		location: 'this is at the Peddireddy home',
 		address:'this is a test of the address'
 	}}
 
@@ -32,14 +34,16 @@ function initMap() {
 //it will need to clear the container
 //and call function of constants for the day's events
 function listOfEventsByDay() {
-	console.log('first ran');
-	$('#thursdayButton').click(function() {
-		console.log('this ran');
-		// return `thngsssssss`;
-	
-		//remove the box contencts
+	$('button').click(function(e) {
 		$(".days-stuff").empty();
-		$(".days-stuff").append(daysEventsObject['Thursday'].day);
+		$(".days-stuff").append(`\
+			<header>${daysEventsObject[e.target.id].event}</header>
+			<p>${daysEventsObject[e.target.id].text}</p>
+			<a href="${daysEventsObject[e.target.id].link}" class="lightbox">${daysEventsObject['Thursday'].event}</a>
+			`)
+		// daysEventsObject.html(daysEventsObject.html().replace(/\n/g,'<br/>'));
+
+		//might want to put in an if this === thursday run the thursday function
 	}) 
 }
 

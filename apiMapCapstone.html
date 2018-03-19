@@ -6,8 +6,8 @@
     	<meta name="viewport" content="width=device-width">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<link rel="stylesheet" href="apiMapCapstone.css"/>
-    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-    	<script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+    	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css"> -->
+    	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     	<script type="text/javascript" src="apiMapCapstone.js"></script> 
     	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGFDuNClPCzkoxsfDP1_YQeeDkS8-H8jE&callback=initMap"></script>
 	</head>
@@ -21,12 +21,14 @@
 			</div>
 		</header>
 		<ul id=linkBox>
-			<li>Thursday</li>
-			<li>Friday</li>
-			<li>Saturday</li>
-			<li>Sunday</li>
+			<button id ="thursdayButton" class="day">Thursday</button>
+			<li id='Friday'>Friday</li>
+			<li id='Saturday'>Saturday</li>
+			<li id='Sunday'>Sunday</li>
 		</ul>
-		<section class="containerOfEvents"> test-of-container </section>
+		<section id="containerOfEvents"> 
+			<p class="days-stuff">test-of-container</p>
+		</section>
 		<section class="mapContainer">
 			<h3>Location of Events</h3>
 			<div id="map"></div>

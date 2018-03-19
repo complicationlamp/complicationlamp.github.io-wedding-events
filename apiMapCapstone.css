@@ -18,12 +18,12 @@ p {
 	text-align: center;*/
 }
 
-li {
+li, button {
 	display: inline;
 	color: white;
 }
 
-.containerOfEvents {
+#containerOfEvents {
 	width: 90%;
 	height: 100px;
 	color: gray;

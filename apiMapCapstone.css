@@ -15,13 +15,9 @@ h2 {
 }
 
 img {
-	width: cover;
+	width: 80%;
 	height: auto;
 }
-/*
-p {
-	color: white;
-}*/
 
 #boldTheHeader {
 	font-weight: bold;
@@ -33,7 +29,7 @@ p {
 
  button {
 	display: inline;
-	color: white;
+	color: black;
 }
 
 #containerOfEvents {

@@ -1,0 +1,5 @@
+Weather API
+
+https://darksky.net/dev
+
+api weather underground (might be easier)

@@ -16,11 +16,11 @@ const daysEventsObject = {
 		text:'Event for imidiate family, you\'ll know if you need to be there'
 	},
 	{
-		event:'Sangeeth & Reception',
+		event:'Sangeet & Reception',
 		time:'6:30pm',
 		address:'Silver Creek Valley Country Club, 5460 Country Club Pkwy, San Jose, CA 95138',
 		link: 'https://youtu.be/K3AQ8U2wqYc',
-		text: 'Event for all, combination of the Sangeeth and a reception'
+		text: 'Event for all, combination of the Sangeet and a reception'
 	}],
 	Saturday: [{
 		event:'Informal Family Gathering',
@@ -51,36 +51,25 @@ function initMap(centerpoint) {
 	let zoomMove;
 	if(centerpoint) {
 		center = centerpoint;
-		zoomMove=10;
+		zoomMove=12;
 	}
 	else {
 		center = '37.642950, -120.996035';
 		zoomMove=8;
 	}
-	center = center.split(",");
+	center = center.split(',');
 	var map = new google.maps.Map(document.getElementById('map'), {
       zoom: zoomMove,
       center: {lat: parseFloat(center[0]), lng: parseFloat(center[1])}
     });
 
-	var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Mehendi</h1>'+
-        '<div id="bodyContent">'+
-        '<p><b>Mehendi</b>, or <b>Hennna</b>, is a form of body art'+
-        ' from Ancient India, in which decorative designs are created'+
-        ' on a person\'s body, using a paste, created from the powdered'+
-        ' dry leaves of the henna plant (Lawsonia inermis). Ancient in'+
-        ' origin, mehndi is still a popular form of body art among the'+
-        ' women of the Indian Subcontinent, Africa and the Middle East.</p>'+
-        '<a class="lightbox" href="https://youtu.be/K3AQ8U2wqYc">'+
-        'A quick video about Mehendi</a></p>'+
-        '</div>'+
-        '</div>';
+//this calls the info box
+	var infowindowMehendi = new google.maps.InfoWindow({
+		content: contentStringMehendi
+        });
 
-	var infowindow = new google.maps.InfoWindow({
-		content: contentString
+	var infowindowSangeet = new google.maps.InfoWindow({
+		content: contentStringSangeet
         });
 
     var silverCreekCC = new google.maps.Marker({
@@ -89,10 +78,10 @@ function initMap(centerpoint) {
       title:'Mehendi'
     });
 
-	var sangeethAtSilverCreek = new google.maps.Marker({
+	var SangeetAtSilverCreek = new google.maps.Marker({
       position: {lat: 37.276947, lng: -121.767684},
       map: map,
-      title:'Sangeeth & Reception'
+      title:'Sangeet & Reception'
     });
 
     var prHome = new google.maps.Marker({
@@ -112,12 +101,12 @@ function initMap(centerpoint) {
     });
 
     silverCreekCC.addListener('click', function() {
-    	infowindow.open(map, silverCreekCC);
+    	infowindowMehendi.open(map, silverCreekCC);
         });
 
-
-    sangeethAtSilverCreek.addListener('click', function() {
-    	infowindow.open(map, sangeethAtSilverCreek);
+//change, this is the mehendi one
+    SangeetAtSilverCreek.addListener('click', function() {
+    	infowindowSangeet.open(map, SangeetAtSilverCreek);
         });
 
 }
@@ -129,9 +118,9 @@ function listOfEventsByDay() {
 	$('button').click(function(e) {
 		const centerpoint = $(this).attr('data-centerpoint');
 		initMap(centerpoint);
-		$(".days-stuff").empty();
+		$('.days-stuff').empty();
 		daysEventsObject[e.target.id].forEach(function(arg) {
-			$(".days-stuff").append(`\
+			$('.days-stuff').append(`\
 			<header id='boldTheHeader'>${arg.event}, ${arg.time}</header>
 			<p>${arg.address}</p>
 			<p>${arg.text}</p>
@@ -142,11 +131,40 @@ function listOfEventsByDay() {
 	}) 
 }
 
+var contentStringMehendi = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Mehendi</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>Mehendi</b>, or <b>Hennna</b>, is a form of body art'+
+        ' from Ancient India, in which decorative designs are created'+
+        ' on a person\'s body, using a paste, created from the powdered'+
+        ' dry leaves of the henna plant (Lawsonia inermis). Ancient in'+
+        ' origin, mehndi is still a popular form of body art among the'+
+        ' women of the Indian Subcontinent, Africa and the Middle East.</p>'+
+        '<a class="lightbox" href="https://youtu.be/K3AQ8U2wqYc">'+
+        'A quick video about Mehendi</a></p>'+
+        '</div>'+
+        '</div>';
+
+var contentStringSangeet = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Sangeet</h1>'+
+        '<div id="bodyContent">'+
+        '<p>The <b>sangeet</b> ceremony heightens the excitement of wedding'+
+        ' festivities. In the earlier days the custom used to last for ten'+
+        ' days but with the passage of time, the custom has usually reduced'+
+        ' to a one night function. Traditionally held at the bride\'s home,'+
+        ' women relatives and friends play the dholki and sing suhaag, which'+
+        ' is a traditional folk song. Songs include \'jokes\' about the'+
+        ' in-laws, would be husband, how to have a successful marriage, and'+
+        ' songs about the bride leaving her parents home. Similarly, the women'+
+        ' at the groom\'s home sing songs called ghoriya. Traditionally only'+
+        ' the women celebrated this ceremony but nowadays the concept has'+
+        ' changed as both men and women participate to celebrate this occasion.</p>'
+        '</div>'+
+        '</div>';
 
 
-//Thursday function displays the contents of the day with 
-//this will link to a popup of a video of the events 
-
-//Friday, we will need to clear the map and repopulate with 
-//with info for friday 
 $(listOfEventsByDay);

@@ -36,11 +36,26 @@ img {
 	width: 90%;
 	height: auto;
 	color: gray;
+	display: block;
 	border: solid white 1px;
 	margin-right: auto;
 	margin-left: auto;
 }
 
+#containerOfBoxes {
+	display: inline-flex;
+	width: 100%;
+}
+
+#infoText{
+	width:80%;
+	background-color: green;
+}
+
+#testBox{
+	width:20%;
+	background-color: blue;
+}
 #map {
 	height: 400px;
 	width: 100%;

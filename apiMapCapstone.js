@@ -124,12 +124,13 @@ function listOfEventsByDay() {
 			<header id='boldTheHeader'>${arg.event}, ${arg.time}</header>
 			<p>${arg.address}</p>
 			<p>${arg.text}</p>
-			<a href="${arg.link}" class="lightbox">${arg.event}</a>
 			`)
 		})
 
 	}) 
 }
+
+//weather addition
 
 var contentStringMehendi = '<div id="content">'+
         '<div id="siteNotice">'+

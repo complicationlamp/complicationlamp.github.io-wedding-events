@@ -131,6 +131,32 @@ function listOfEventsByDay() {
 }
 
 //weather addition
+$(document).ready(function(){
+  $('#Thursday, #Friday, #Saturday, #Sunday').click(function(e){ //e is the data from the html element, the id in this case, and we specify centerpoint to split it up
+      const centerpoint = $(this).attr('data-centerpoint');//this is grabbing the latlong in data-centerpoint="37.276759, -121.771754" from HTML
+      const latLon = centerpoint.split(',');//this is splitting the string around the comma and storing in an array
+      //we need parsfloat to put it into a number and latlon[] to call the number at the 0 position and at the 1 position
+      const locationUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${parseFloat(latLon[0])}&lon=${parseFloat(latLon[1])}&units=imperial&APPID=fe9cc2f3597bc0da6d52789f4517a6b8`
+      $.ajax({
+        url:locationUrl,
+        type:"GET",
+        dataType:"jsonp",
+        success: function (data){
+          // console.log(data);
+            var widget = displayWeather(data);
+            $("#weatherBox").html(widget);
+        }
+      }); 
+  });
+});
+
+
+function displayWeather(data) {
+  console.log(data);
+  return "<p><strong>Weather</strong>: "+ data.main.temp + " F</p>" +
+          "<p><strong>Weather</strong>: " + data.weather[0].description + "</p>" +
+          "<img src='http://openweathermap.org/img/w/" + data.weather[0].icon +".png'> </img>";
+}
 
 var contentStringMehendi = '<div id="content">'+
         '<div id="siteNotice">'+

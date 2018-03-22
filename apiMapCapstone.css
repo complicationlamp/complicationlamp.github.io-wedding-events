@@ -48,13 +48,13 @@ img {
 }
 
 #infoText{
-	width:80%;
-	background-color: green;
+	width:75%;
+	background-color: black;
 }
 
-#testBox{
+#weatherBox{
 	width:20%;
-	background-color: blue;
+	background-color: black;
 }
 #map {
 	height: 400px;

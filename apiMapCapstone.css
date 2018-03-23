@@ -3,46 +3,88 @@ html {
 }
 
 h2 {
-	color: white;
+	color: snow;
+	font-size: 2.5em;
+}
+
+p{
+	font-size: 1.2em;
+	/*color: #e7e7e7;*/
 }
 
 .imgContainer {
 	text-align: center;
 }
 
+#content {
+	color: black;
+}
+
 img {
-	width: cover;
+	width: 80%;
 	height: auto;
 }
 
-p {
-	color: white;
-}
-
-#boldTheHeader {
+.boldTheHeader {
 	font-weight: bold;
+	font-size: 1.5em;
+	font-style: italic;
 }
 
 #linkBox {
-	text-align: center;*/
+	text-align: center;
+	margin: 1em;
 }
 
  button {
 	display: inline;
-	color: white;
+	color: black;
+	width: 20%;
+	height: auto;
+	border-radius: 8px;
+	background: #6c8c9f;
+	border: double;
+	font-size: 2em;
+	color: snow;
+	padding-bottom: 2px;
+}
+
+button:hover {
+	background-color: #ff820b;
 }
 
 #containerOfEvents {
 	width: 90%;
 	height: auto;
-	color: gray;
-	border: solid white 1px;
+	color: #e7e7e7;
+	display: block;
+	border: 3mm ridge rgb(72,72,72, .6);
 	margin-right: auto;
 	margin-left: auto;
+}
+
+#containerOfBoxes {
+	display: inline-flex;
+	width: 100%;
+}
+
+#infoText{
+	width:75%;
+	background-color: black;
+}
+
+#weatherBox{
+	width:20%;
+	background-color: black;
+	text-align: center;
+}
+
+#mapContainer{
+	text-align: center;
 }
 
 #map {
 	height: 400px;
 	width: 100%;
-/*	background-color: blue;*/
+	background-color: blue;
 }

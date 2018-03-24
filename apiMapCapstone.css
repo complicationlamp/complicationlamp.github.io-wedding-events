@@ -2,8 +2,19 @@ html {
 	background: black;
 }
 
+body {
+  font-family: 'Old Standard TT', serif;
+}
+
 h2 {
-	color: white;
+	color: snow;
+	font-size: 2.5em;
+}
+
+p{
+	font-size: 1.2em;
+	font-family: 'Old Standard TT', serif;
+	/*color: #e7e7e7;*/
 }
 
 .imgContainer {
@@ -19,25 +30,40 @@ img {
 	height: auto;
 }
 
-#boldTheHeader {
+.boldTheHeader {
 	font-weight: bold;
+	font-size: 1.5em;
+	font-style: italic;
 }
 
 #linkBox {
-	text-align: center;*/
+	text-align: center;
+	margin: 1em;
 }
 
  button {
 	display: inline;
 	color: black;
+	width: 20%;
+	height: auto;
+	border-radius: 8px;
+	background: #6c8c9f;
+	border: double;
+	font-size: 2em;
+	color: snow;
+	padding-bottom: 2px;
+}
+
+button:hover {
+	background-color: #ff820b;
 }
 
 #containerOfEvents {
 	width: 90%;
 	height: auto;
-	color: gray;
+	color: #e7e7e7;
 	display: block;
-	border: solid white 1px;
+	border: 3mm ridge rgb(72,72,72, .6);
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -55,9 +81,40 @@ img {
 #weatherBox{
 	width:20%;
 	background-color: black;
+	text-align: center;
 }
+
+#mapContainer{
+	text-align: center;
+}
+
 #map {
 	height: 400px;
 	width: 100%;
-/*	background-color: blue;*/
+	background-color: blue;
+}
+
+/*reactive CSS*/
+.day {
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+}
+
+@media only screen and (max-width: 640px) {
+  .day{
+    display: block;  
+    width: 100%;
+    margin-bottom: 2pt;
+  }
+  #containerOfBoxes {
+    display: block;
+  }
+  #infoText {
+    width: 100%;
+  }
+  
+  #weatherBox {
+    width: 100%;
+    font-size: 2em;
+  }
 }

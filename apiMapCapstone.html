@@ -5,11 +5,10 @@
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css"> 
+    	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet"> 
     	<link rel="stylesheet" href="apiMapCapstone.css"/>
-    	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css"> -->
-    	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    	<script type="text/javascript" src="apiMapCapstone.js"></script> 
-    	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGFDuNClPCzkoxsfDP1_YQeeDkS8-H8jE&callback=initMap"></script>
+    	
 	</head>
 
 <body id="bodyOfPage">
@@ -20,12 +19,12 @@
 				<h2> Event Guide </h2>
 			</div>
 		</header>
-		<ul id=linkBox>
+		<div id=linkBox aria-live="assertive">
 			<button id ="Thursday" class="day" data-centerpoint="37.276759, -121.771754">Thursday</button>
 			<button id="Friday" class="day" data-centerpoint="37.276759, -121.771754">Friday</button>
 			<button id="Saturday" class="day" data-centerpoint="37.743468, -119.598263">Saturday</button>
 			<button id="Sunday" class="day" data-centerpoint="37.743468, -119.598263">Sunday</button>
-		</ul>
+		</div>
 		<section id="containerOfEvents"> 
 			<div id=containerOfBoxes>
 				<div id="infoText">
@@ -33,14 +32,17 @@
 				</div>
 				<div id="weatherBox"></div>
 			</div>
-		</section>
-		<section class="mapContainer">
-			<h3>Location of Events</h3>
-			<div id="map"></div>
+		</section> 
+		<section id="mapContainer" role="presentation" >
+			<h2 role="presentation" id="mapOfEventsBanner">Location of Events</h2>
+			<div id="map" role="presentation" aria-live="polite"></div>
 
 		</section>
 		
 	</main>
-
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="apiMapCapstone.js"></script> 
+  <script title="map-on-screen" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGFDuNClPCzkoxsfDP1_YQeeDkS8-H8jE&callback=initMap"></script>
 </body>
+
 </html>

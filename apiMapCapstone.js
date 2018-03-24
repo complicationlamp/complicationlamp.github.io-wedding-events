@@ -58,6 +58,7 @@ function initMap(centerpoint) {
 		center = '37.642950, -120.996035';
 		zoomMove=8;
 	}
+  
 	center = center.split(',');//splits the string of cords around the , and stores in an array
 	var map = new google.maps.Map(document.getElementById('map'), {
       zoom: zoomMove,
@@ -156,6 +157,7 @@ function closeCurrentInfoWindow() {
   if (currentInfoWindow) {
     currentInfoWindow.close();
   }
+
 }
 
 //this function will call the id of the day, on click
@@ -168,6 +170,7 @@ function listOfEventsByDay() {
 		$('.days-stuff').empty();
 		daysEventsObject[e.target.id].forEach(function(arg) {
 			$('.days-stuff').append(`\
+
 			<header class='boldTheHeader'>${arg.event}, ${arg.time}</header>
 			<p>${arg.address}</p>
 			<p>${arg.text}</p>

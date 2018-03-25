@@ -1,7 +1,6 @@
 ESHA & KYLE'S WEDDING EVENT GUIDE
 
-https://wedding-app-final--complicationlam.repl.co/
-
+https://complicationlamp.github.io/
 
 
 SUMMARY:

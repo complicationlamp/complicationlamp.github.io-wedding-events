@@ -34,6 +34,7 @@ img {
 	font-weight: bold;
 	font-size: 1.5em;
 	font-style: italic;
+	text-decoration: underline;
 }
 
 #linkBox {
@@ -56,6 +57,10 @@ img {
 
 button:hover {
 	background-color: #ff820b;
+}
+
+.activeButton{
+  background-color: #ff820b;
 }
 
 #containerOfEvents {
@@ -83,6 +88,10 @@ button:hover {
 	background-color: black;
 	text-align: center;
 }
+/*icon from api is blurry above this size*/
+#weatherIcon{
+  width: 50%;
+}
 
 #mapContainer{
 	text-align: center;
@@ -100,7 +109,7 @@ button:hover {
   padding-right: 1.04166666%;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 760px) {
   .day{
     display: block;  
     width: 100%;

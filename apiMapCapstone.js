@@ -14,7 +14,7 @@ const daysEventsObject = {
 		time:'10:00am',
 		address:'4955 Portmarnoch Ct, San Jose, CA 95138',
 		link: 'https://youtu.be/K3AQ8U2wqYc',
-		text:'Event for imidiate family, you\'ll know if you need to be there'
+		text:'Event for immediate family, you\'ll know if you need to be there'
 	},
 	{
 		event:'Sangeet & Reception',

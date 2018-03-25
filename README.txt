@@ -1,1 +1,0 @@
-This webpage details events of my wedding including their locations in the google map api and the weather at the location from the openweathermap api. click on a day to see the days events and watch the map populate with markers of the events locations.

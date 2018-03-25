@@ -56,9 +56,8 @@ function initMap(centerpoint) {
 	}
 	else {
 		center = '37.642950, -120.996035';
-		zoomMove=8;
+		zoomMove=7;
 	}
-  
 	center = center.split(',');//splits the string of cords around the , and stores in an array
 	var map = new google.maps.Map(document.getElementById('map'), {
       zoom: zoomMove,
@@ -157,7 +156,6 @@ function closeCurrentInfoWindow() {
   if (currentInfoWindow) {
     currentInfoWindow.close();
   }
-
 }
 
 //this function will call the id of the day, on click
@@ -167,10 +165,11 @@ function listOfEventsByDay() {
 	$('button').click(function(e) {
 		const centerpoint = $(this).attr('data-centerpoint');
 		initMap(centerpoint);
+		$('button').removeClass('activeButton');
+		$(e.target).addClass('activeButton');
 		$('.days-stuff').empty();
 		daysEventsObject[e.target.id].forEach(function(arg) {
 			$('.days-stuff').append(`\
-
 			<header class='boldTheHeader'>${arg.event}, ${arg.time}</header>
 			<p>${arg.address}</p>
 			<p>${arg.text}</p>
@@ -200,11 +199,12 @@ $(document).ready(function(){
   });
 });
 
+
 function displayWeather(data) {
   // console.log(data);
   return "<p><strong>Temperature</strong>: "+ data.main.temp + " F</p>" +
           "<p><strong>Weather</strong>: " + data.weather[0].description + "</p>" +
-          "<img alt='wether-icon' src='http://openweathermap.org/img/w/" + data.weather[0].icon +".png'> </img>";
+          "<img alt='wether-icon' id='weatherIcon' src='http://openweathermap.org/img/w/" + data.weather[0].icon +".png'> </img>";
 }
 
 var contentStringMehendi = '<div id="content">'+
@@ -247,7 +247,7 @@ var contentStringMakingBride = '<div id="content">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Making of Bride and Groom</h1>'+
         '<div id="bodyContent">'+
-        '<p>The <b>Haldi</b> ceremony is traditionally held t the bride and grooms\''+
+        '<p>The <b>Haldi</b> ceremony is traditionally held at the bride and grooms\''+
         ' respective houses, there is a gathering of all the relatives and well'+
         ' wishers. They then smear them with turmeric paste – Nalugu. It is a'+
         ' mixture of flours, turmeric powder and oils. This is done to cleanse the' +
@@ -285,5 +285,6 @@ var contentStringMajestic = '<div id="content">'+
         ' adapted for Stanley Kubrick\'s horror film The Shining.</p>';
         '</div>'+
         '</div>';
+
 
 $(listOfEventsByDay);

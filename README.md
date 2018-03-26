@@ -8,7 +8,7 @@ The app is designed to be a simple guide to my wedding coming up in October 2018
 
 ![screenshot of landingpage](mapsApiForWedding/Screenshot-2018-3-25 Esha Kyle.png )
 
-![screenshot with date clicked and marker clicked](mapsApiForWedding/Screenshot-2018-3-25 Esha Kyle(1).png )
+![screenshot with date clicked and marker clicked](https://github.com/complicationlamp/mapsApiForWedding/blob/master/Screenshot-2018-3-25%20Esha%20Kyle(1).png)
 
 TECHNOLOGY USED:
 This app is built with:HTML, JavaScript, jQuery, CSS, AJAX

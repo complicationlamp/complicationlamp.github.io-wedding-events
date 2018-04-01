@@ -56,13 +56,24 @@ function initMap(centerpoint) {
 	}
 	else {
 		center = '37.642950, -120.996035';
-		zoomMove=7;
+		zoomMove=1;
 	}
 	center = center.split(',');//splits the string of cords around the , and stores in an array
 	var map = new google.maps.Map(document.getElementById('map'), {
       zoom: zoomMove,
       center: {lat: parseFloat(center[0]), lng: parseFloat(center[1])}
     });
+    //this adds the draggable directions api
+    var directionsService = new google.maps.DirectionsService();
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        draggable: true,
+        map: map,
+        panel: document.getElementById('right-panel')
+    });
+    directionsDisplay.addListener('directions_changed', function() {
+        computeTotalDistance(directionsDisplay.getDirections());
+    });
+    displayRoute('San Jsoe International Airport, CA', 'The Majestic Yosemite, CA', directionsService, directionsDisplay);   
 
 //this calls the info box
 	var infowindowMehendi = new google.maps.InfoWindow({
@@ -87,29 +98,54 @@ function initMap(centerpoint) {
 
   var silverCreekCC = new google.maps.Marker({
       position: {lat: 37.276759, lng: -121.771754},
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
       map: map,
       title:'Mehendi'
     });
 
 	var SangeetAtSilverCreek = new google.maps.Marker({
       position: {lat: 37.276947, lng: -121.767684},
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
       map: map,
       title:'Sangeet & Reception'
     });
 
   var prHome = new google.maps.Marker({
     	position: {lat: 37.284095, lng:-121.780559},
-    	map: map,
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
+      map: map,
     	title: 'Making of Bride & Groom'
     });
   var yosemiteLodge = new google.maps.Marker({
       position: {lat: 37.743468, lng: -119.598263},
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
       map: map,
       title:'Informal Family Gathering at the Yosemite Lodge'
     });
   var majesticHotel = new google.maps.Marker({
     	position: {lat: 37.746286, lng:-119.574262},
-    	map: map,
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
+      map: map,
     	title: 'Ceremony & Lunch at The Majestic Yosemite Hotel'
     });
 
@@ -150,6 +186,36 @@ function initMap(centerpoint) {
     });
 
 
+}
+
+//to display the route
+function displayRoute(origin, destination, service, display) {
+  service.route({
+      origin: origin,
+      destination: destination,
+      waypoints: [{
+          location: 'Silver Creek Valley Country Club, CA'
+           }],
+      travelMode: 'DRIVING',
+      avoidTolls: true
+  }, function(response, status) {
+      if (status == 'OK') {
+          display.setDirections(response);
+      } else {
+          alert('Could not display directions due to: ' + status);
+      }
+  });
+}
+
+function computeTotalDistance(result) {
+  var total = 0;
+  var myroute = result.routes[0];
+  for (var i =0; i < myroute.legs.length; i++) {
+      total +=  myroute.legs[i].distance.value;
+  }
+  total = total / 5280;
+  
+  document.getElementById('total').innerHTML = total.toFixed(1) + ' mi';
 }
 
 function closeCurrentInfoWindow() {

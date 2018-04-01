@@ -30,6 +30,9 @@
 			<div id=containerOfBoxes>
 				<div id="infoText">
 					<p class="days-stuff">Please click on one of the days above to view events. Also, click on a marker on the map below to get cultural meaning of event.</p>
+					<h3>Map Directions: Want to See Some Of California?</h3>
+					<p> The directions below start at San Jose airport and by default will take you to the events (wich are the black arrows). </p>
+					<p><strong>Or Make Your Own Route!</strong> by simply dragging a red marker, or the blue road to a location of interest: Golden Gate Bridge, Redwoods National Forest, Petit Crenn, or the Winchester Mystery House! </p>
 				</div>
 				<div id="weatherBox"></div>
 			</div>
@@ -37,7 +40,11 @@
 		<section id="mapContainer" role="presentation" >
 			<h2 role="presentation" id="mapOfEventsBanner">Location of Events</h2>
 			<div id="map" role="presentation" aria-live="polite"></div>
-
+				<!-- this is an addition for the map, dragable directions -->
+			<div id="right-panel">
+				<p>Total Distance: <span id="total"></span></p>
+			</div>
+			
 		</section>
 		
 	</main>

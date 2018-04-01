@@ -56,7 +56,7 @@ function initMap(centerpoint) {
 	}
 	else {
 		center = '37.642950, -120.996035';
-		zoomMove=9;
+		zoomMove=1;
 	}
 	center = center.split(',');//splits the string of cords around the , and stores in an array
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -73,7 +73,7 @@ function initMap(centerpoint) {
     directionsDisplay.addListener('directions_changed', function() {
         computeTotalDistance(directionsDisplay.getDirections());
     });
-    displayRoute('San Francisco International Airport, CA', 'The Majestic Yosemite, CA', directionsService, directionsDisplay);   
+    displayRoute('San Jsoe International Airport, CA', 'The Majestic Yosemite, CA', directionsService, directionsDisplay);   
 
 //this calls the info box
 	var infowindowMehendi = new google.maps.InfoWindow({
@@ -98,29 +98,54 @@ function initMap(centerpoint) {
 
   var silverCreekCC = new google.maps.Marker({
       position: {lat: 37.276759, lng: -121.771754},
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
       map: map,
       title:'Mehendi'
     });
 
 	var SangeetAtSilverCreek = new google.maps.Marker({
       position: {lat: 37.276947, lng: -121.767684},
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
       map: map,
       title:'Sangeet & Reception'
     });
 
   var prHome = new google.maps.Marker({
     	position: {lat: 37.284095, lng:-121.780559},
-    	map: map,
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
+      map: map,
     	title: 'Making of Bride & Groom'
     });
   var yosemiteLodge = new google.maps.Marker({
       position: {lat: 37.743468, lng: -119.598263},
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
       map: map,
       title:'Informal Family Gathering at the Yosemite Lodge'
     });
   var majesticHotel = new google.maps.Marker({
     	position: {lat: 37.746286, lng:-119.574262},
-    	map: map,
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+        scale: 6
+      },
+      draggable: false, 
+      map: map,
     	title: 'Ceremony & Lunch at The Majestic Yosemite Hotel'
     });
 

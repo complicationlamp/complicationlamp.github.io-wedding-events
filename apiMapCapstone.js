@@ -56,7 +56,7 @@ function initMap(centerpoint) {
 	}
 	else {
 		center = '37.642950, -120.996035';
-		zoomMove=7;
+		zoomMove=9;
 	}
 	center = center.split(',');//splits the string of cords around the , and stores in an array
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -73,7 +73,7 @@ function initMap(centerpoint) {
     directionsDisplay.addListener('directions_changed', function() {
         computeTotalDistance(directionsDisplay.getDirections());
     });
-    displayRoute('San Fransico, CA', 'San Jose, CA', directionsService, directionsDisplay);   
+    displayRoute('San Francisco International Airport, CA', 'The Majestic Yosemite, CA', directionsService, directionsDisplay);   
 
 //this calls the info box
 	var infowindowMehendi = new google.maps.InfoWindow({
@@ -169,10 +169,8 @@ function displayRoute(origin, destination, service, display) {
       origin: origin,
       destination: destination,
       waypoints: [{
-          location: 'San Mateo, CA'
-      }, {
-          location: 'Santa Cruz,CA'
-      }],
+          location: 'Silver Creek Valley Country Club, CA'
+           }],
       travelMode: 'DRIVING',
       avoidTolls: true
   }, function(response, status) {
@@ -190,8 +188,9 @@ function computeTotalDistance(result) {
   for (var i =0; i < myroute.legs.length; i++) {
       total +=  myroute.legs[i].distance.value;
   }
-  total = total / 1000;
-  document.getElementById('total').innerHTML = total + ' km';
+  total = total / 5280;
+  
+  document.getElementById('total').innerHTML = total.toFixed(1) + ' mi';
 }
 
 function closeCurrentInfoWindow() {

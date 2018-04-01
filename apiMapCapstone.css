@@ -81,6 +81,7 @@ button:hover {
 #infoText{
 	width:75%;
 	background-color: black;
+	font-size: 1.2em;
 }
 
 #weatherBox{

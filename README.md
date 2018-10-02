@@ -1,6 +1,6 @@
 ESHA & KYLE'S WEDDING EVENT GUIDE
 
-hhttps://complicationlamp.github.io/wedding-events/.
+https://complicationlamp.github.io/wedding-events/
 
 
 SUMMARY:

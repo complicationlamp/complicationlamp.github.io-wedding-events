@@ -1,5 +1,4 @@
 let currentInfoWindow;
-
 //make an object of all my info
 const daysEventsObject = {
 	Thursday: [{
@@ -59,13 +58,13 @@ function initMap(centerpoint) {
 		zoomMove=1;
 	}
 	center = center.split(',');//splits the string of cords around the , and stores in an array
-	var map = new google.maps.Map(document.getElementById('map'), {
+	const map = new google.maps.Map(document.getElementById('map'), {
       zoom: zoomMove,
       center: {lat: parseFloat(center[0]), lng: parseFloat(center[1])}
     });
     //this adds the draggable directions api
-    var directionsService = new google.maps.DirectionsService();
-    var directionsDisplay = new google.maps.DirectionsRenderer({
+    const directionsService = new google.maps.DirectionsService();
+    const directionsDisplay = new google.maps.DirectionsRenderer({
         draggable: true,
         map: map,
         panel: document.getElementById('right-panel')
@@ -76,27 +75,27 @@ function initMap(centerpoint) {
     displayRoute('San Jsoe International Airport, CA', 'The Majestic Yosemite, CA', directionsService, directionsDisplay);   
 
 //this calls the info box
-	var infowindowMehendi = new google.maps.InfoWindow({
+	const infowindowMehendi = new google.maps.InfoWindow({
 		content: contentStringMehendi
   });
 
-	var infowindowSangeet = new google.maps.InfoWindow({
+	const infowindowSangeet = new google.maps.InfoWindow({
 		content: contentStringSangeet
   });
         
-  var infoWindowMakingOfBride = new google.maps.InfoWindow({
+  const infoWindowMakingOfBride = new google.maps.InfoWindow({
     content: contentStringMakingBride
   });
   
-  var infoWindowYosemiteRC = new google.maps.InfoWindow({
+  const infoWindowYosemiteRC = new google.maps.InfoWindow({
     content: contentStringYosemiteRC
   });
 
-  var infoWindowMajestic = new google.maps.InfoWindow({
+  const infoWindowMajestic = new google.maps.InfoWindow({
     content: contentStringMajestic
   });
 
-  var silverCreekCC = new google.maps.Marker({
+  const silverCreekCC = new google.maps.Marker({
       position: {lat: 37.276759, lng: -121.771754},
       icon: {
         path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
@@ -107,7 +106,7 @@ function initMap(centerpoint) {
       title:'Mehendi'
     });
 
-	var SangeetAtSilverCreek = new google.maps.Marker({
+	const SangeetAtSilverCreek = new google.maps.Marker({
       position: {lat: 37.276947, lng: -121.767684},
       icon: {
         path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
@@ -118,7 +117,7 @@ function initMap(centerpoint) {
       title:'Sangeet & Reception'
     });
 
-  var prHome = new google.maps.Marker({
+  const prHome = new google.maps.Marker({
     	position: {lat: 37.284095, lng:-121.780559},
       icon: {
         path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
@@ -128,7 +127,7 @@ function initMap(centerpoint) {
       map: map,
     	title: 'Making of Bride & Groom'
     });
-  var yosemiteLodge = new google.maps.Marker({
+  const yosemiteLodge = new google.maps.Marker({
       position: {lat: 37.743468, lng: -119.598263},
       icon: {
         path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
@@ -138,7 +137,7 @@ function initMap(centerpoint) {
       map: map,
       title:'Informal Family Gathering at the Yosemite Lodge'
     });
-  var majesticHotel = new google.maps.Marker({
+  const majesticHotel = new google.maps.Marker({
     	position: {lat: 37.746286, lng:-119.574262},
       icon: {
         path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
@@ -184,10 +183,7 @@ function initMap(centerpoint) {
     	infoWindowMajestic.open(map, majesticHotel);
     	currentInfoWindow = infoWindowMajestic;
     });
-
-
 }
-
 //to display the route
 function displayRoute(origin, destination, service, display) {
   service.route({
@@ -208,9 +204,9 @@ function displayRoute(origin, destination, service, display) {
 }
 
 function computeTotalDistance(result) {
-  var total = 0;
-  var myroute = result.routes[0];
-  for (var i =0; i < myroute.legs.length; i++) {
+  const total = 0;
+  const myroute = result.routes[0];
+  for (const i =0; i < myroute.legs.length; i++) {
       total +=  myroute.legs[i].distance.value;
   }
   total = total / 5280;
@@ -230,7 +226,8 @@ function closeCurrentInfoWindow() {
 function listOfEventsByDay() {
 	$('button').click(function(e) {
 		const centerpoint = $(this).attr('data-centerpoint');
-		initMap(centerpoint);
+    initMap(centerpoint);
+    document.getElementById("map-directions").style.display = "none";
 		$('button').removeClass('activeButton');
 		$(e.target).addClass('activeButton');
 		$('.days-stuff').empty();
@@ -258,7 +255,7 @@ $(document).ready(function(){
         dataType:"jsonp",
         success: function (data){
           // console.log(data);
-            var widget = displayWeather(data);
+            const widget = displayWeather(data);
             $("#weatherBox").html(widget);
         }
       }); 
@@ -273,7 +270,7 @@ function displayWeather(data) {
           "<img alt='wether-icon' id='weatherIcon' src='http://openweathermap.org/img/w/" + data.weather[0].icon +".png'> </img>";
 }
 
-var contentStringMehendi = '<div id="content">'+
+const contentStringMehendi = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Mehendi</h1>'+
@@ -289,7 +286,7 @@ var contentStringMehendi = '<div id="content">'+
         '</div>'+
         '</div>';
 
-var contentStringSangeet = '<div id="content">'+
+const contentStringSangeet = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Sangeet</h1>'+
@@ -308,7 +305,7 @@ var contentStringSangeet = '<div id="content">'+
         '</div>'+
         '</div>';
         
-var contentStringMakingBride = '<div id="content">'+
+const contentStringMakingBride = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Making of Bride and Groom</h1>'+
@@ -323,7 +320,7 @@ var contentStringMakingBride = '<div id="content">'+
         '</div>'+
         '</div>';
         
-var contentStringYosemiteRC = '<div id="content">'+
+const contentStringYosemiteRC = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Rock Climbing in Yosemite</h1>'+
@@ -339,7 +336,7 @@ var contentStringYosemiteRC = '<div id="content">'+
         '</div>'+
         '</div>';
         
-var contentStringMajestic = '<div id="content">'+
+const contentStringMajestic = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Wedding at the Majestic</h1>'+

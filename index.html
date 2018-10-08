@@ -20,16 +20,20 @@
 				<h2>Esha & Kyle <br> Wedding Event Guide </h2>
 			</div>
 		</header>
-		<div id=linkBox aria-live="assertive">
-			<button id ="Thursday" class="day" data-centerpoint="37.276759, -121.771754">Thursday</button>
-			<button id="Friday" class="day" data-centerpoint="37.276759, -121.771754">Friday</button>
-			<button id="Saturday" class="day" data-centerpoint="37.743468, -119.598263">Saturday</button>
-			<button id="Sunday" class="day" data-centerpoint="37.743468, -119.598263">Sunday</button>
-		</div>
+		<section class="day-btns">
+			<div id=linkBox aria-live="assertive">
+				<button id ="Thursday" class="day" data-centerpoint="37.276759, -121.771754">Thursday</button>
+				<button id="Friday" class="day" data-centerpoint="37.276759, -121.771754">Friday</button>
+				<button id="Saturday" class="day" data-centerpoint="37.743468, -119.598263">Saturday</button>
+				<button id="Sunday" class="day" data-centerpoint="37.743468, -119.598263">Sunday</button>
+			</div>
+		</section>
 		<section id="containerOfEvents"> 
 			<div id=containerOfBoxes>
-				<div id="infoText">
-					<p class="days-stuff">Please click on one of the days above to view events. Also, click on a marker on the map below to get cultural meaning of event.</p>
+				<div id="infoText" class="days-stuff">
+				</div>
+				<div id="map-directions">
+					<p >Please click on one of the days above to view events. Also, click on a marker on the map below to get cultural meaning of event.</p>
 					<h3>Map Directions: Want to See Some Of California?</h3>
 					<p> The directions below start at San Jose airport and by default will take you to the events (wich are the black arrows). </p>
 					<p><strong>Or Make Your Own Route!</strong> by simply dragging a red marker, or the blue road to a location of interest: Golden Gate Bridge, Redwoods National Forest, Petit Crenn, or the Winchester Mystery House! </p>
@@ -50,7 +54,7 @@
 	</main>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="apiMapCapstone.js"></script> 
-  <script title="map-on-screen" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGFDuNClPCzkoxsfDP1_YQeeDkS8-H8jE&callback=initMap"></script>
+  <script title="map-on-screen" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3a71kX3S-ajiLTjX48QSWfUF3VmeM5j0&callback=initMap"></script>
 </body>
 
 </html>

@@ -15,15 +15,21 @@ h3{
 	padding-left: 2%;
 	padding-right: 2%;
 	line-height: 1.5;
-	
 }
+h4{
+	font-size: .9em;
+}
+
 p{
 	font-size: 1em;
 	padding-left: 2%;
 	padding-right: 2%;
 	line-height: 1.5;
 	font-family: 'Old Standard TT', serif;
-	/*color: #e7e7e7;*/
+}
+main{
+	margin:auto;
+	max-width: 1000px;
 }
 
 .imgContainer {
@@ -74,16 +80,13 @@ button:hover {
 }
 
 #containerOfEvents {
-	/* width: 90%; */
 	height: auto;
 	color: #e7e7e7;
-	/* display: block; */
 	border: 3mm ridge rgb(72,72,72, .6);
 }
 
 #containerOfBoxes {
 	display: inline-flex;
-	/* display: block; */
 	display: -webkiit-flex;
 	width: 100%;
 }
@@ -92,6 +95,7 @@ button:hover {
 	width:100%;
 	background-color: black;
 	font-size: 1.2em;
+	padding: .35em;
 }
 
 #weatherBox{
@@ -99,10 +103,7 @@ button:hover {
 	text-align: center;
 	width: 100%;
 	font-size: 2em;
-}
-/*icon from api is blurry above this size*/
-#weatherIcon{
-  width: 50%;
+	padding: .2em;
 }
 
 #mapContainer{
@@ -113,9 +114,7 @@ button:hover {
 	height: 400px;
 	width: 100%;
 	background-color: blue;
-	/* added for dragable */
 	float: left;
-	/* width: 63%; */
 }
 /* this is the added CSS for the dragable mapp addition */
 #right-panel {
@@ -149,10 +148,7 @@ button:hover {
 	overflow: auto;
 }
 
-/*reactive CSS*/
 .day {
-  /* padding-left: 1.04166666%;
-	padding-right: 1.04166666%; */
 	display: block;  
 	width: 100%;
 	margin-bottom: 2pt;
@@ -191,6 +187,5 @@ button:hover {
 			float:left;
 			margin: .5%;
 		}
-		
 	}
 }

@@ -219,7 +219,11 @@ function closeCurrentInfoWindow() {
     currentInfoWindow.close();
   }
 }
+function hide(id){
+  document.getElementById("weatherBox").style.display = "none";
+  document.getElementById("infoText").style.display = "none";
 
+}
 //this function will call the id of the day, on click
 //it will need to clear the container
 //and call function of constants for the day's events
@@ -228,12 +232,14 @@ function listOfEventsByDay() {
 		const centerpoint = $(this).attr('data-centerpoint');
     initMap(centerpoint);
     document.getElementById("map-directions").style.display = "none";
+    document.getElementById("infoText").style.display = "inline";
+    document.getElementById("weatherBox").style.display = "inline";
 		$('button').removeClass('activeButton');
 		$(e.target).addClass('activeButton');
 		$('.days-stuff').empty();
 		daysEventsObject[e.target.id].forEach(function(arg) {
 			$('.days-stuff').append(`\
-			<header class='boldTheHeader'>${arg.event}, ${arg.time}</header>
+			<h4 class='boldTheHeader'>${arg.event}, ${arg.time}</h4>
 			<p>${arg.address}</p>
 			<p>${arg.text}</p>
 			`)
@@ -265,9 +271,9 @@ $(document).ready(function(){
 
 function displayWeather(data) {
   // console.log(data);
-  return "<p><strong>Temperature</strong>: "+ data.main.temp + " F</p>" +
-          "<p><strong>Weather</strong>: " + data.weather[0].description + "</p>" +
-          "<img alt='wether-icon' id='weatherIcon' src='http://openweathermap.org/img/w/" + data.weather[0].icon +".png'> </img>";
+  return "<h4 class='weather'>Temperature: "+ data.main.temp + " F</h4>" +
+          "<h4 class='weather'>Weather: " + data.weather[0].description + "</h4>" +
+          "<img class='weather' alt='wether-icon' id='weatherIcon' src='http://openweathermap.org/img/w/" + data.weather[0].icon +".png'> </img>";
 }
 
 const contentStringMehendi = '<div id="content">'+
@@ -351,3 +357,4 @@ const contentStringMajestic = '<div id="content">'+
 
 
 $(listOfEventsByDay);
+$(hide);

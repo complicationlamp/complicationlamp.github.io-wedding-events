@@ -204,9 +204,9 @@ function displayRoute(origin, destination, service, display) {
 }
 
 function computeTotalDistance(result) {
-  const total = 0;
+  let total = 0;
   const myroute = result.routes[0];
-  for (const i =0; i < myroute.legs.length; i++) {
+  for (let i =0; i < myroute.legs.length; i++) {
       total +=  myroute.legs[i].distance.value;
   }
   total = total / 5280;
@@ -271,9 +271,9 @@ $(document).ready(function(){
 
 function displayWeather(data) {
   // console.log(data);
-  return "<h4 class='weather'>Temperature: "+ data.main.temp + " F</h4>" +
-          "<h4 class='weather'>Weather: " + data.weather[0].description + "</h4>" +
-          "<img class='weather' alt='wether-icon' id='weatherIcon' src='http://openweathermap.org/img/w/" + data.weather[0].icon +".png'> </img>";
+  return "<h4 >Temperature: "+ data.main.temp + " F</h4>" +
+          "<h4 >Weather: " + data.weather[0].description + "</h4>" +
+          "<img style='display:none' alt='wether-icon' id='weatherIcon' src='http://openweathermap.org/img/w/" + data.weather[0].icon +".png'> </img>";
 }
 
 const contentStringMehendi = '<div id="content">'+

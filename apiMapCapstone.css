@@ -29,7 +29,7 @@ p{
 }
 main{
 	margin:auto;
-	max-width: 1000px;
+	max-width: 1600px;
 }
 
 .imgContainer {
@@ -173,11 +173,11 @@ button:hover {
 		margin-top: 9em;
 	}
 	#infoText{
-		width: 60%;
+		width: 70%;
 		float: left;
 	}
 	#weatherBox{
-		width:40%;
+		width:30%;
 		float: left;
 	}
 
